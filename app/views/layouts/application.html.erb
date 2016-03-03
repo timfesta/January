@@ -2,26 +2,37 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag 'application', media: 'all',
-                                           'data-turbolinks-track' => true %>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cerulean/bootstrap.min.css">
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-    <%= render 'layouts/shim' %>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/journal/bootstrap.css" rel="stylesheet">
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+      <%= render 'layouts/shim' %>
   </head>
   <body>
-  <%= render 'layouts/header' %>
-    <div class="container-fluid">
-    <% flash.each do |message_type, message| %>
-           <div class="alert alert-<%= message_type %>"><%= message %></div>
-         <% end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-    </div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <%= link_to "January", root_path, id: "logo" %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% if logged_in? %>
+                <li><%= link_to "Users", users_path %></li>
+                <li><%= link_to "Profile", current_user %></li>
+                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+              <% else %>
+                <li><%= link_to "Log in", login_path %></li>
+                <li><%= link_to "Sign Up", signup_path %>
+              <% end %>
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+    
   </body>
 </html>
