@@ -74,6 +74,10 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # allowing for background images
+  config.serve_static_assets = true
+  config.assets.compile = true
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
@@ -89,5 +93,15 @@ Rails.application.configure do
       :password       => ENV['SENDGRID_PASSWORD'],
       :domain         => 'heroku.com',
       :enable_starttls_auto => true
+    }
+
+    # config/environments/production.rb
+    config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+        :bucket => ENV['birdmanjr'],
+        :access_key_id => ENV['AKIAJC4KC3S2D35S2O6A'],
+        :secret_access_key => ENV['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']
+      }
     }
 end

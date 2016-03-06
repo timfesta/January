@@ -14,7 +14,7 @@
  *= require_self
  */
  .jumbotron {
-	background-image: url(russian_hill.png);
+	background-image: url('russian_hill.png');
 	height: 300px;
 	width: 100%;
 	background-repeat: no-repeat;

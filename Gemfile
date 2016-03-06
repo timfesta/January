@@ -18,6 +18,8 @@ gem 'jbuilder',                '~> 2.0'
 gem 'sdoc',                    '~> 0.4.0', group: :doc
 
 gem 'pg'
+gem 'paperclip'
+gem 'aws-sdk'
 
 
 group :development, :test do
