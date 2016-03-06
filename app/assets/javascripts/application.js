@@ -15,3 +15,8 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+$(document).ready(function () {
+  $(".navbar-toggle").click(function(event) {
+    $(".navbar-collapse").collapse('hide');
+  });
+});
