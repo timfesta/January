@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     CFPropertyList (2.3.2)
     actionmailer (4.2.3)
@@ -364,4 +364,4 @@ DEPENDENCIES
   will_paginate (= 3.0.7)
 
 BUNDLED WITH
-   1.10.6
+   1.13.6
